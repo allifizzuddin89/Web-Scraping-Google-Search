@@ -76,10 +76,15 @@ class MainSpider(scrapy.Spider):
         # print(response.text)
         # print('\n')
         # inspect_response(response, self)
-        item = {
-            'Title' : response.css('div.BNeawe.vvjwJb.AP7Wnd.UwRFLe::text').get(),
-            'Link' : response.css('div.BNeawe.UPmit.AP7Wnd.lRVwie::text').get(),
-            'Description' : response.css('div.VwiC3b>span::text').get(),
-            'Tags' : response.css('div.HiHjCd>a[href]::text').getall(),
-        }
-        yield item
+        item1 = response.css('div.MjjYud')
+        item2 = response.css('div.hlcw0c')
+        item3 = response.css('div.ULSxyf')
+        items = []
+        while items in item1 or items in item2 or items in item3:
+            item = {
+                'Title' : response.css('div.LC20lb.MBeuO.DKV0Md::text').get(),
+                'Link' : response.css('div.div.yuRUbf>a::attr(href)').get(),
+                'Description' : response.css('div.VwiC3b>span::text').get(),
+                'Tags' : response.css('div.HiHjCd>a[href]::text').getall(),
+            }
+            yield item
