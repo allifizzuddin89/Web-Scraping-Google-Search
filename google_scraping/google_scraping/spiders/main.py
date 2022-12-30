@@ -77,17 +77,21 @@ class MainSpider(scrapy.Spider):
         # print('\n')
         # print(response.text)
         # print('\n')
-        inspect_response(response, self)
-        # item1 = response.css('div.MjjYud')
+        # inspect_response(response, self)
+        item_data = response.css('div.MjjYud')
         # item2 = response.css('div.hlcw0c')
         # item3 = response.css('div.ULSxyf')
         # items = []
-        # while items in item1 or items in item2 or items in item3:
-        #     item = {
-        #         'Title' : items.css('h3.LC20lb.MBeuO.DKV0Md::text').get(),
-        #         'Link' : items.css('div.div.yuRUbf>a::attr(href)').get(),
-        #         'Description' : items.css('div.VwiC3b>span::text').get(),
-        #         'Tags' : items.css('div.HiHjCd>a[href]::text').getall(),
-        #     }
-        #     yield item
+        for items in item_data:
+            item = {
+                'Title' : items.css('h3.LC20lb.MBeuO::text').get(),
+                'Link' : items.css('div.yuRUbf>a::attr(href)').get(),
+                'Description' : items.css('div.VwiC3b>span::text').getall(),
+                'Tags' : items.css('div.HiHjCd>a[href]::text').getall(),
+            }
+            yield item
 
+
+#s3 #rso > div:nth-child(4) > div > div > div.Z26q7c.UK95Uc.jGGQ5e > div > a > h3.LC20lb
+
+#s2 #rso > div:nth-child(2) > div > div > div > div.Z26q7c.UK95Uc.jGGQ5e.VGXe8 > div > a > h3.LC20lb
