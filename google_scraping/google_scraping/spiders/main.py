@@ -84,7 +84,7 @@ class MainSpider(scrapy.Spider):
         # items = []
         # while items in item1 or items in item2 or items in item3:
         #     item = {
-        #         'Title' : items.css('div.LC20lb.MBeuO.DKV0Md::text').get(),
+        #         'Title' : items.css('h3.LC20lb.MBeuO.DKV0Md::text').get(),
         #         'Link' : items.css('div.div.yuRUbf>a::attr(href)').get(),
         #         'Description' : items.css('div.VwiC3b>span::text').get(),
         #         'Tags' : items.css('div.HiHjCd>a[href]::text').getall(),
